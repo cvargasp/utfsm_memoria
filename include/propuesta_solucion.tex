@@ -1,2 +1,66 @@
 \chapter{Propuesta de Solución}
 
+\section{Pre-procesamiento de los datos}
+
+Antes de ejecutar el algoritmo de clusterización se realiza un proceso ETL (extract, transform and load), el cual permite limpiar y estandarizar las bases de datos.
+
+Se seleccionan atributos numéricos y categóricos para los establecimientos y se generan otros a partir de la información extraída del MIME, debido a que mucha de esta no se encuentra estandarizada. De la misma forma se seleccionan atributos numéricos y categóricos para las matrículas, y a partir de variables no seleccionadas se calculan nuevas como es el caso de la sobre edad. Además se incorpora de manera relacional con el establecimiento al que asisten su nivel de copago y la distancia a la cual viven del colegio. De igual manera, para los establecimientos se agregan atributos relacionales, como lo es la distancia a la que viven sus estudiantes en su percentil 75 y el índice de desarrollo de la educación (IDE) por rango.
+
+Luego de esto se transforman las variables categóricas o nominales a numéricas para poder utilizarlas en el algoritmo de clusterización junto al resto de las variables numéricas.
+
+Se imputaron los datos faltantes dentro de cada uno de los atributos previamente escogidos mediante el algoritmo MICE (\textit{(Multiple imputation by chained equations}) para eliminar todos los valores nulos.
+
+\section{X-Means}
+
+\begin{table}[]
+\centering
+\caption{Atributos seleccionados y generados para la base de datos de establecimientos}
+\label{my-label}
+\begin{tabular}{|p{5cm}|p{9	cm}|}
+\hline
+\textbf{Atributo}  & \textbf{Descripción} \\ \hline
+area\_metropolitana\_rbd & Pertenencia al area metropolitana. \\ \hline
+cod\_depe & Código de dependencia del establecimiento. \\ \hline
+gen\_rbd & Género del establecimiento. \\ \hline
+mat\_total & Matrícula total de alumnos. \\ \hline
+prom\_alu\_cur & Promedio de alumnos por curso. \\ \hline
+pago\_mat & Nivel de pago de matrícula. \\ \hline
+pago\_men & Nivel de pago de mensualidad. \\ \hline
+becas\_disp & Becas disponibles en el establecimiento. \\ \hline
+convenio\_sep & Posee convenio de subvención escolar preferencial (SEP). \\ \hline
+deportivo & Nivel deportivo del establecimiento. \\ \hline
+req\_papeles & Requisitos de papeles para postular. \\ \hline
+req\_pruebas & Requisitos de prueba para postular. \\ \hline
+req\_entrevista & Requisitos de entrevista para postular. \\ \hline
+req\_pago & Requisitos de pago para postular. \\ \hline
+req\_otros & Requisitos de cualquier tipo que no clasifique en las categorías anteriores. \\ \hline
+enf\_academico & Enfoque acádemico. \\ \hline
+enf\_valorico & Enfoque valórico. \\ \hline
+enf\_laboral & Enfoque laboral. \\ \hline
+enf\_otros & Enfoque de otro tipo que no clasifique en las categorías anteriores. \\ \hline
+apoyo\_tutorias & Ofrece ayuda a los alumnos mediante tutorías. \\ \hline
+apoyo\_especialistas & Ofrece ayuda a los alumnos mediante especialistas. \\ \hline
+apoyo\_otros & Ofrece ayuda a los alumnos de cualquier otra forma que no clasifique en la categorías anteriores. \\ \hline
+s\_basica & Establecimiento de enseñanza básica. \\ \hline
+s\_media & Establecimiento de enseñanza media. \\ \hline
+completa & Establecimiento de enseñanza completa. \\ \hline
+IDE\_rango & Índice de desarrollo de la educación para todos por rango. \\ \hline
+dist\_percentil\_75 & Distancia del percentil 75 de los alumnos que asisten al establecimiento. \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Año  & CIAE & MIME & Faltan & \%    \\ \hline
+2013 & 2110 & 2040 & 70     & 96,68 \\ \hline
+2014 & 2095 & 2049 & 46     & 97,8  \\ \hline
+2015 & 2088 & 2057 & 31     & 98,52 \\ \hline
+2016 & 2068 & 2061 & 7      & 99,66 \\ \hline
+\end{tabular}
+\end{table}

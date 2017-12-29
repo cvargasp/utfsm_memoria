@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.11)  20 DEC 2017 00:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.11)  29 DEC 2017 01:36
 entering extended mode
 **C:/Users/cvargasp/Documents/GitHub/utfsm_memoria/thesis.tex
 (C:/Users/cvargasp/Documents/GitHub/utfsm_memoria/thesis.tex
@@ -1075,49 +1075,53 @@ LaTeX Info: Redefining \% on input line 23.
 LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
 (include/acknowledgements.aux) (include/resumen.aux) (include/abstract.aux) (in
-clude/glossary.aux))
+clude/glossary.aux)
+
+LaTeX Warning: Label `my-label' multiply defined.
+
+)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 85.
-LaTeX Font Info:    Try loading font information for OML+txmi on input line 85.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 88.
+LaTeX Font Info:    Try loading font information for OML+txmi on input line 88.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\omltxmi.fd"
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 85.
-LaTeX Font Info:    Try loading font information for OMS+txsy on input line 85.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 88.
+LaTeX Font Info:    Try loading font information for OMS+txsy on input line 88.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\omstxsy.fd"
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 85.
-LaTeX Font Info:    Try loading font information for OMX+txex on input line 85.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 88.
+LaTeX Font Info:    Try loading font information for OMX+txex on input line 88.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\omxtxex.fd"
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 85.
-LaTeX Font Info:    Try loading font information for U+txexa on input line 85.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 88.
+LaTeX Font Info:    Try loading font information for U+txexa on input line 88.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\utxexa.fd"
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 85.
-LaTeX Font Info:    Try loading font information for LGR+cmr on input line 85.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 88.
+LaTeX Font Info:    Try loading font information for LGR+cmr on input line 88.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\cbfonts-fd\lgrcmr.fd"
 File: lgrcmr.fd 2017/07/29 v1.2 Greek European Computer Regular
 )
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Try loading font information for OT1+txr on input line 85.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Try loading font information for OT1+txr on input line 88.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txr.fd"
 File: ot1txr.fd 2000/12/15 v3.1
 )
@@ -1129,7 +1133,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
-Package hyperref Info: Link coloring ON on input line 85.
+Package hyperref Info: Link coloring ON on input line 88.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
@@ -1137,9 +1141,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count122
 )
-LaTeX Info: Redefining \ref on input line 85.
-LaTeX Info: Redefining \pageref on input line 85.
-LaTeX Info: Redefining \nameref on input line 85.
+LaTeX Info: Redefining \ref on input line 88.
+LaTeX Info: Redefining \pageref on input line 88.
+LaTeX Info: Redefining \nameref on input line 88.
 (thesis.out) (thesis.out)
 \@outlinefile=\write3
 \openout3 = `thesis.out'.
@@ -1170,12 +1174,12 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
 \c@lstlisting=\count129
-LaTeX Info: Redefining \. on input line 85.
-LaTeX Info: Redefining \% on input line 85.
+LaTeX Info: Redefining \. on input line 88.
+LaTeX Info: Redefining \% on input line 88.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \. on input line 87.
-LaTeX Info: Redefining \% on input line 87.
+LaTeX Info: Redefining \. on input line 90.
+LaTeX Info: Redefining \% on input line 90.
 Most over/underfulls in first few pages are the fault of dalthesis.
 Ignore all them. If uncorrectable errors occur, notify staff.
 Package epstopdf Info: Source file: <images/isotipo_negro.eps>
@@ -1187,13 +1191,13 @@ Package epstopdf Info: Source file: <images/isotipo_negro.eps>
 (epstopdf)                    size: 8421 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/isotipo_negro-eps-co
 nverted-to.pdf images/isotipo_negro.eps>
-(epstopdf)             \includegraphics on input line 104.
+(epstopdf)             \includegraphics on input line 107.
 Package epstopdf Info: Output file is already uptodate.
-<images/isotipo_negro-eps-converted-to.pdf, id=65, 692.5875pt x 504.88625pt>
+<images/isotipo_negro-eps-converted-to.pdf, id=81, 692.5875pt x 504.88625pt>
 File: images/isotipo_negro-eps-converted-to.pdf Graphic file (type pdf)
 <use images/isotipo_negro-eps-converted-to.pdf>
 Package pdftex.def Info: images/isotipo_negro-eps-converted-to.pdf used on inpu
-t line 104.
+t line 107.
 (pdftex.def)             Requested size: 128.79247pt x 93.89409pt.
 [1
 
@@ -1207,13 +1211,13 @@ Package epstopdf Info: Source file: <images/logo_usm.eps>
 (epstopdf)                    size: 49720 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/logo_usm-eps-convert
 ed-to.pdf images/logo_usm.eps>
-(epstopdf)             \includegraphics on input line 104.
+(epstopdf)             \includegraphics on input line 107.
 Package epstopdf Info: Output file is already uptodate.
-<images/logo_usm-eps-converted-to.pdf, id=76, 591.20876pt x 428.60126pt>
+<images/logo_usm-eps-converted-to.pdf, id=92, 591.20876pt x 428.60126pt>
 File: images/logo_usm-eps-converted-to.pdf Graphic file (type pdf)
 <use images/logo_usm-eps-converted-to.pdf>
 Package pdftex.def Info: images/logo_usm-eps-converted-to.pdf used on input lin
-e 104.
+e 107.
 (pdftex.def)             Requested size: 129.51604pt x 93.89409pt.
 [2 <./images/logo_usm-eps-converted-to.pdf>]
 Acknowledgements
@@ -1307,61 +1311,73 @@ Las p\IeC {\'a}ginas del prefacio de la UTFSM_Tesis han sido escritas
 
 ]
 Cap\'{\i }tulo 1.
-) (include/estado_arte.tex [2
+[2
 
-]
+]) (include/estado_arte.tex [3]
 Cap\'{\i }tulo 2.
 
-LaTeX Warning: Citation `SAPELLI2002' on page 3 undefined on input line 5.
+LaTeX Warning: Citation `SAPELLI2002' on page 4 undefined on input line 5.
 
-[3
+[4
 
 ]
 
-LaTeX Warning: Citation `gallego2010school' on page 4 undefined on input line 7
+LaTeX Warning: Citation `gallego2010school' on page 5 undefined on input line 7
 .
 
 
-LaTeX Warning: Citation `McFadden74' on page 4 undefined on input line 7.
+LaTeX Warning: Citation `McFadden74' on page 5 undefined on input line 7.
 
 
-LaTeX Warning: Citation `berry1995automobile' on page 4 undefined on input line
+LaTeX Warning: Citation `berry1995automobile' on page 5 undefined on input line
  7.
 
 
-LaTeX Warning: Citation `SAPELLI2002' on page 4 undefined on input line 7.
+LaTeX Warning: Citation `SAPELLI2002' on page 5 undefined on input line 7.
 
 
-LaTeX Warning: Citation `Chumacero20111103' on page 4 undefined on input line 9
+LaTeX Warning: Citation `Chumacero20111103' on page 5 undefined on input line 9
 .
 
 
-LaTeX Warning: Citation `SAPELLI2002' on page 4 undefined on input line 9.
+LaTeX Warning: Citation `SAPELLI2002' on page 5 undefined on input line 9.
 
 
-LaTeX Warning: Citation `GOMEZ2012' on page 4 undefined on input line 11.
+LaTeX Warning: Citation `GOMEZ2012' on page 5 undefined on input line 11.
 
 
-LaTeX Warning: Citation `SAPELLI2002' on page 4 undefined on input line 11.
+LaTeX Warning: Citation `SAPELLI2002' on page 5 undefined on input line 11.
 
-[4]
+[5]
 
-LaTeX Warning: Citation `canalesque' on page 5 undefined on input line 13.
+LaTeX Warning: Citation `canalesque' on page 6 undefined on input line 13.
 
-) (include/propuesta.tex [5]
+) (include/propuesta_solucion.tex [6]
 Cap\'{\i }tulo 3.
-) (include/implementacion.tex [6
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 15.
+
+
+LaTeX Warning: Float too large for page by 90.91129pt on input line 50.
+
+[7
 
 ]
-Cap\'{\i }tulo 4.
-) (include/conclusiones.tex [7
 
-]) [8
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 54.
+
+) (include/implementacion.tex [8] [9] [10]
+Cap\'{\i }tulo 4.
+) (include/conclusiones.tex [11
+
+]) [12
 
 ]
 No file thesis.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 135.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 135.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 138.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 138.
 (thesis.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
@@ -1369,34 +1385,44 @@ LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
 (include/acknowledgements.aux) (include/resumen.aux) (include/abstract.aux) (in
 clude/glossary.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 135.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 135.
-Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 0317C8FF0510C03C06360E1671F07012;813.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 138.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 138.
+
+Package rerunfilecheck Warning: File `thesis.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `thesis.out':
+(rerunfilecheck)             Before: 3B9F55CCF3C74CCB2A97FF04735367FE;1124
+(rerunfilecheck)             After:  8FC12E49EA9A2AC9B9416B65498F0A41;1179.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 135.
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 138.
  ) 
 Here is how much of TeX's memory you used:
- 11332 strings out of 493323
- 164880 string characters out of 3139057
- 270625 words of memory out of 3000000
- 14550 multiletter control sequences out of 15000+200000
- 60285 words of font info for 138 fonts, out of 3000000 for 9000
+ 11354 strings out of 493323
+ 165179 string characters out of 3139057
+ 277577 words of memory out of 3000000
+ 14559 multiletter control sequences out of 15000+200000
+ 61659 words of font info for 140 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,8n,38p,1916b,621s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,11n,39p,1916b,621s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
 st, replaced by a fixed one
 
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKT
 eX 2.9/fonts/type1/public/txfonts/rtxbsc.pfb><C:/Program Files/MiKTeX 2.9/fonts
 /type1/public/txfonts/rtxsc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/ti
-mes/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb>
+mes/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
 Output written on C:\Users\cvargasp\Documents\GitHub\utfsm_memoria\thesis.pdf (
-18 pages, 125168 bytes).
+22 pages, 146608 bytes).
 PDF statistics:
- 199 PDF objects out of 1000 (max. 8388607)
- 37 named destinations out of 1000 (max. 500000)
- 146 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 246 PDF objects out of 1000 (max. 8388607)
+ 48 named destinations out of 1000 (max. 500000)
+ 178 words of extra memory for PDF output out of 10000 (max. 10000000)
 
