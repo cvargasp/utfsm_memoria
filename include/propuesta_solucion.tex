@@ -10,11 +10,45 @@ Luego de esto se transforman las variables categóricas o nominales a numéricas
 
 Se imputaron los datos faltantes dentro de cada uno de los atributos previamente escogidos mediante el algoritmo MICE (\textit{(Multiple imputation by chained equations}) para eliminar todos los valores nulos.
 
+
 \section{X-Means}
+
+X-Means es un algoritmo de agrupamiento, extendido de K-Means, propuesto por Pelleg y Moore \cite{Pelleg00x-means:extending} en el cual se busca dar solución a los principales problemas de K-Means. Estos son: baja escalabilidad computacional, requiere el ingreso de un número determinado de clústers y es sensible a mínimos locales.
+
+El principal problema que viene a solucionar este método es el de ingresar con anticipación el número deseado de clústers, X-Means recibe un límite inferior y uno superior. Dentro de este rango el algoritmo es capaz de determinar cual es el número de centroides correcto basandose en una heurística.
+
+\subsection{Pseudocóigo de X-Means}
+
+\begin{algorithm}
+\caption{X-Means}\label{alg:xmeans}
+\begin{algorithmic}[1]
+\Require Set de datos S, número máximo de cluster MAX
+\Require Función 2Means(S) retorna 2 clústers
+\State Clustering $\gets$ 2Means(S)
+\State Mejor\_Puntuacion $\gets -\infty$ 
+\While{Clustering $<$ MAX}\Comment{We have the answer if r is 0}
+\State Nuevo\_Clustering $\gets$ \{\}
+\ForAll{Cl $\in$ Clustering}
+\State Cl2 $\gets$ 2Means(Cl)
+\If {Medida(Cl) $>$ Medida(Cl2)}
+\State Nuevo\_Clustering $\gets$ Nuevo\_Clustering $ \cup $ \{Cl\}
+\Else
+\State Nuevo\_Clustering $\gets$ Nuevo\_Clustering $ \cup $ Cl2
+\EndIf
+\EndFor
+\State Clustering $gets$ Nuevo\_Clustering
+\If {Measure(Clustering) $>$ Mejor\_Puntuacion}
+\State Mejor\_Puntuacion $gets$ Medida(Clustering)
+\State Mejor\_Clustering $gets$ Clustering
+\EndIf
+\EndWhile\label{euclidendwhile}
+\State \textbf{return} Mejor\_Clustering \Comment{The gcd is b}
+\end{algorithmic}
+\end{algorithm}
 
 \begin{table}[]
 \centering
-\caption{Atributos seleccionados y generados para la base de datos de establecimientos}
+\caption{Atributos seleccionados y generados para la base de datos de establecimientos.}
 \label{my-label}
 \begin{tabular}{|p{5cm}|p{9	cm}|}
 \hline
@@ -49,18 +83,41 @@ dist\_percentil\_75 & Distancia del percentil 75 de los alumnos que asisten al e
 \end{tabular}
 \end{table}
 
+\begin{table}[]
+\centering
+\caption{Atributos seleccionados y generados para la base de datos de matrículas.}
+\label{my-label}
+\begin{tabular}{|p{5cm}|p{9	cm}|}
+\hline
+\textbf{Atributo}  & \textbf{Descripción} \\ \hline
+area\_metropolitana\_alu & Pertenencia al área metropolitana.\\ \hline
+gen\_alu & Género del establecimiento. \\ \hline
+area\_metropolitana\_alu & \\ \hline
+cod\_sec & Código del sector económico.\\ \hline
+cod\_espe & Código de especialidad. \\ \hline
+cod\_rama & Código de rama. \\ \hline
+grado\_sep & Corresponde a un nivel SEP.\\ \hline
+beneficiario\_sep & Indicador del alumno beneficiario de la SEP.\\ \hline
+criterio\_sep & Criterio por el cual se considera prioritario. \\ \hline
+sobre\_edad & Diferencia entra la edad actual y la esperada para el nivel. \\ \hline
+dist\_actual & Sitancia del alumno a su establecimiento actual\\ \hline
+pago\_mat & Nivel de pago de matrícula. \\ \hline
+pago\_men & Nivel de pago de mensualidad. \\ \hline
+\end{tabular}
+\end{table}
+
 
 
 \begin{table}[]
 \centering
-\caption{My caption}
+\caption{Resumen }
 \label{my-label}
 \begin{tabular}{|l|l|l|l|l|}
 \hline
-Año  & CIAE & MIME & Faltan & \%    \\ \hline
-2013 & 2110 & 2040 & 70     & 96,68 \\ \hline
-2014 & 2095 & 2049 & 46     & 97,8  \\ \hline
-2015 & 2088 & 2057 & 31     & 98,52 \\ \hline
-2016 & 2068 & 2061 & 7      & 99,66 \\ \hline
+Año  & CIAE & MIME & \% de coincidencia   \\ \hline
+2013 & 2110 & 2040 & 96,68 \\ \hline
+2014 & 2095 & 2049 & 97,8  \\ \hline
+2015 & 2088 & 2057 & 98,52 \\ \hline
+2016 & 2068 & 2061 & 99,66 \\ \hline
 \end{tabular}
 \end{table}

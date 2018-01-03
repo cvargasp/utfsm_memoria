@@ -1,0 +1,17 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: thesis.aux
+A level-1 auxiliary file: include/acknowledgements.aux
+A level-1 auxiliary file: include/resumen.aux
+A level-1 auxiliary file: include/abstract.aux
+A level-1 auxiliary file: include/glossary.aux
+The style file: plain.bst
+Database file #1: bib/papers.bib
+A bad cross reference---entry "SAPELLI2002"
+refers to entry "10.4067/S0717-68212002011700002", which doesn't exist
+A bad cross reference---entry "GOMEZ2012"
+refers to entry "10.4067/S0718-52862012000200003", which doesn't exist
+Warning--I didn't find a database entry for "10.4067/S0717-68212002011700002"
+Warning--I didn't find a database entry for "10.4067/S0718-52862012000200003"
+Warning--empty year in canalesque
+Warning--there's a number but no volume in gallego2010school
+Warning--empty journal in McFadden74
+(There were 2 error messages)

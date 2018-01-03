@@ -18,5 +18,7 @@
 \contentsline {chapter}{\numberline {3}Propuesta de Soluci\IeC {\'o}n}{7}{chapter.3}
 \contentsline {section}{\numberline {3.1}Pre-procesamiento de los datos}{7}{section.3.1}
 \contentsline {section}{\numberline {3.2}X-Means}{8}{section.3.2}
-\contentsline {chapter}{\numberline {4}Implementaci\'on}{11}{chapter.4}
-\contentsline {chapter}{Conclusiones}{12}{chapter*.11}
+\contentsline {subsection}{\numberline {3.2.1}Pseudoc\IeC {\'o}igo de X-Means}{8}{subsection.3.2.1}
+\contentsline {chapter}{\numberline {4}Implementaci\'on}{12}{chapter.4}
+\contentsline {chapter}{Conclusiones}{13}{chapter*.12}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{14}{chapter*.13}
