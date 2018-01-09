@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.11)  3 JAN 2018 00:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.11)  4 JAN 2018 17:34
 entering extended mode
 **./thesis.tex
 (thesis.tex
@@ -1295,7 +1295,7 @@ Package epstopdf Info: Source file: <images/isotipo_negro.eps>
 nverted-to.pdf images/isotipo_negro.eps>
 (epstopdf)             \includegraphics on input line 110.
 Package epstopdf Info: Output file is already uptodate.
-<images/isotipo_negro-eps-converted-to.pdf, id=93, 692.5875pt x 504.88625pt>
+<images/isotipo_negro-eps-converted-to.pdf, id=89, 692.5875pt x 504.88625pt>
 File: images/isotipo_negro-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/isotipo_negro-eps-converted-to.pdf>
@@ -1317,7 +1317,7 @@ ed-to.pdf images/logo_usm.eps>
 (epstopdf)             \includegraphics on input line 110.
 Package epstopdf Info: Output file is already uptodate.
 
-<images/logo_usm-eps-converted-to.pdf, id=104, 591.20876pt x 428.60126pt>
+<images/logo_usm-eps-converted-to.pdf, id=100, 591.20876pt x 428.60126pt>
 File: images/logo_usm-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/logo_usm-eps-converted-to.pdf>
@@ -1381,7 +1381,12 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 ) [6
 
 
-])
+]
+
+LaTeX Warning: Citation `montresordecentralized' on page \es@scroman {vii} unde
+fined on input line 20.
+
+)
 \tf@toc=\write4
 \openout4 = `thesis.toc'.
 
@@ -1394,8 +1399,7 @@ LaTeX Info: Redefining \% on input line 2.
 \tf@lot=\write5
 \openout5 = `thesis.lot'.
 
-
-[8
+ [8
 
 ] (thesis.lof
 LaTeX Info: Redefining \. on input line 1.
@@ -1422,6 +1426,10 @@ Las p\IeC {\'a}ginas del prefacio de la UTFSM_Tesis han sido escritas
 
 ]
 Cap\'{\i }tulo 1.
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 7.
+
 [2
 
 ]) (include/estado_arte.tex [3]
@@ -1432,11 +1440,19 @@ Cap\'{\i }tulo 2.
 Cap\'{\i }tulo 3.
 [7
 
-]
+] [8]
+
+LaTeX Warning: Citation `montresordecentralized' on page 9 undefined on input l
+ine 20.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@ifnextchar' on input line 20.
+
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 23.
 LaTeX Font Info:    Try loading font information for OMS+txr on input line 30.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\omstxr.fd"
+("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\omstxr.fd"
 File: omstxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
@@ -1444,20 +1460,20 @@ LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 49.
+               Default added (so using `tbp') on input line 50.
 
 
-LaTeX Warning: Float too large for page by 90.91129pt on input line 84.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 86.
+LaTeX Warning: Float too large for page by 90.91129pt on input line 85.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 111.
+               Default added (so using `tbp') on input line 87.
 
-) (include/implementacion.tex [8] [9] [10] [11]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 112.
+
+) (include/implementacion.tex [9] [10] [11]
 Cap\'{\i }tulo 4.
 ) (include/conclusiones.tex [12
 
@@ -1481,7 +1497,10 @@ LaTeX Info: Redefining \% on input line 27.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 141.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 141.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: F1B5441F2AB3945C7E677CF7303610B0;1313.
+(rerunfilecheck)             Checksum: EFD4EED0F39A03D3CAA42B16F71D1ACF;1266.
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1490,9 +1509,9 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 141.
  ) 
 Here is how much of TeX's memory you used:
  11982 strings out of 493323
- 174132 string characters out of 3139057
- 294833 words of memory out of 3000000
- 15154 multiletter control sequences out of 15000+200000
+ 174147 string characters out of 3139057
+ 293833 words of memory out of 3000000
+ 15155 multiletter control sequences out of 15000+200000
  61899 words of font info for 141 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,11n,39p,1870b,621s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1507,9 +1526,9 @@ eX 2.9/fonts/type1/public/txfonts/rtxbsc.pfb><C:/Program Files/MiKTeX 2.9/fonts
 am Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ur
 w/times/utmri8a.pfb>
-Output written on thesis.pdf (24 pages, 170301 bytes).
+Output written on thesis.pdf (24 pages, 170737 bytes).
 PDF statistics:
- 305 PDF objects out of 1000 (max. 8388607)
- 62 named destinations out of 1000 (max. 500000)
- 202 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 300 PDF objects out of 1000 (max. 8388607)
+ 61 named destinations out of 1000 (max. 500000)
+ 194 words of extra memory for PDF output out of 10000 (max. 10000000)
 

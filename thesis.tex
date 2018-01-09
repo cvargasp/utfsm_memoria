@@ -19,6 +19,7 @@
 \usepackage[polutonikogreek,english,spanish]{babel}
 \usepackage{epsfig}
 \usepackage{sty/utfsm_tesis}
+\usepackage{subfig}
 
 %Include Table of Contents as the first entry in TOC
 \usepackage{sty/xtocinc}
@@ -31,6 +32,10 @@
 
 \usepackage[Algoritmo]{algorithm}
 \usepackage[noend]{algpseudocode}
+
+\usepackage{appendix}
+
+\usepackage{longtable}
 
 \renewcommand{\labelitemi}{$\bullet$}
 
@@ -123,11 +128,14 @@
 %archivo propuesta
 \input{include/propuesta_solucion}
 %archivo implementacion
-\input{include/implementacion}
+\input{include/resultados}
 %fin desarrollo
 
 %archivo conclusiones
 \input{include/conclusiones}
+
+%archivo anexos
+\input{include/anexos.tex}
 
 %\backmatter
 %\cleardoublepage

@@ -1,14 +1,15 @@
 \chapter{Definici\'on del Problema}
 
-\section{Contextualización}
+Este trabajo realiza un estudio sobre algoritmos de clasificación no supervisados, específicamente X-Means, en bases de datos de establecimientos y estudiantes de la región metropolitana para entender cual es la estructura subyacente que presentan dichos datos. Con esto se busca poder establecer una manera de clasificar tanto a los colegios como a los alumnos sin contar con una idea preconcebida, sino que permitiendo que los datos analizados entreguen dicha información.
 
-\subsection{Datos a analizar}
+A la fecha no existen otros estudios que realicen un trabajo similar al planteado en el presente documento, ya que ha diferencia de este buscan establecer a que establecimiento debe asistir cada alumno según diferentes funciones de utilidad.
 
-Las bases de datos de establecimientos y matrículas fueron facilitadas por el Centro de Investigación Avanzada en Educación (CIAE). Donde la primera fue complementada con la información disponible en la página web del Ministerio de Educación de Chile, MIME, mediante la técnica de \textit{web scraping}.
 
-La base de datos de establecimientos corresponde a los colegios de la región metropolitana que imparten enseñanza básica y media para niños y jóvenes, tanto humanísta científico como técnico profesional. Por otro lado las matrículas corresponden a estudiantes que se encuentran inscritos en los colegios anteriormente descritos. 
+\section{Datos a analizar}
 
-\section{Identificación del Problema}
+Las bases de datos de establecimientos y matrículas fueron facilitadas por el Centro de Investigación Avanzada en Educación (CIAE). Donde la primera fue complementada con la información disponible en la página web del Ministerio de Educación de Chile (MIME\cite{MIME}) mediante la técnica de \textit{web scraping}, pudiendo así recolectar la información pública disponible para cada colegio.
+
+La base de datos de establecimientos corresponde a los colegios de la región metropolitana que imparten enseñanza básica y media para niños y jóvenes, tanto humanista científico como técnico profesional. Por otro lado las matrículas corresponden a estudiantes que se encuentran inscritos en los colegios anteriormente descritos. 
 
 \section{Objetivos Generales}
 
@@ -18,6 +19,6 @@ Para esto se utilizará un algoritmo de clusterización sobre establecimientos y
 
 \subsection{Objetivos Específicos}
 \begin{enumerate}
-\item Generar clústers de establecimientos mediante el uso del algoritmo X-Means y comparar los resultados según el número de atributos escogidos para cada prueba.
-\item Generar clústers de matrículas mediante el uso del algoritmo X-Means y comparar los resultados según el número de atributos escogidos para cada prueba.
+\item Clasificar los establecimientos mediante el uso del algoritmo de clusterización X-Means y comparar los resultados según el número de atributos escogidos para cada prueba.
+\item Clasificar las matrículas mediante el uso del algoritmo de clusterización X-Means y comparar los resultados según el número de atributos escogidos para cada prueba.
 \end{enumerate}
