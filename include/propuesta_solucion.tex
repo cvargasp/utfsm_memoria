@@ -1,82 +1,148 @@
 \chapter{Propuesta de Solución}
 
-\section{Pre-procesamiento de los datos}
+Este trabajo presenta un estudio tanto de establecimientos educacionales como de sus alumnos, para poder determinar la estructura que estos presentan y poder generar un modelo de selección de colegios basado en los grupos que se generen a partir de los conjuntos de datos iniciales.
 
-Antes de ejecutar el algoritmo de clusterización se realiza un proceso ETL (extract, transform and load), el cual permite limpiar y estandarizar las bases de datos.
+\section{Metodología de trabajo}
 
-Se seleccionan atributos numéricos y categóricos para los establecimientos y se generan otros a partir de la información extraída del MIME\cite{MIME}, debido a que mucha de esta no se encuentra estandarizada. De la misma forma se seleccionan atributos numéricos y categóricos para las matrículas, y a partir de variables no seleccionadas se calculan nuevas como es el caso de la sobre edad. Además se incorpora de manera relacional con el establecimiento al que asisten su nivel de copago y la distancia a la cual viven del colegio. De igual manera, para los establecimientos se agregan atributos relacionales, como lo es la distancia a la que viven sus estudiantes en su percentil 75 y el índice de desarrollo de la educación (IDE) por rango. El detalle de los atributos seleccionados pueden ser encontrados en los anexos \ref{tab:atributos_establecimientos} y \ref{tab:atributos_matriculas} respectivamente.
+Con la finalidad de llevar a cabo los objetivos planteados para este estudio se optó por utilizar una metodología popia basada en la metodología CRSIP-DM. 
 
-Luego de esto se transforman las variables categóricas o nominales a numéricas para poder utilizarlas en el algoritmo de clusterización junto al resto de las variables numéricas.
+El trabajo se desarrolla de la siguiente forma:
 
-Se imputaron los datos faltantes dentro de cada uno de los atributos previamente escogidos mediante el algoritmo MICE \textit{(Multiple imputation by chained equations}) para eliminar todos los valores nulos.
+\begin{itemize}
+    \item \textbf{Comprensión de datos:} esta etapa consiste básicamente en la colección de datos desde diferentes fuentes. En este caso fueron utilizadas las bases de datos de establecimientos y matrículas de la Región Metropolitana facilitadas por el CIAE. Además se complementó la base de datos de los colegios con la información pública disponible en la página Web del Ministerio de Educación de Chile (MIME \cite{MIME}), los cuales fueron obtenidos mediante la técnica de \textit{Web scraping}.
+    
+    \item \textbf{Preparación de datos:} en esta fase, a partir de los datos obtenidos anteriormente, se seleccionaron los atributos más relevantes para el estudio y se realizó un proceso de limpieza y estandarización de los datos. También se agregaron algunos atributos que fueron derivados o calculados a partir de los datos extraídos originalmente, como los atributos s\_basica, s\_media, completa, IDE\_rango y dist\_percentil\_75 en el caso de los establecimientos, y la sobre\_edad en el de las matrículas. 
+    
+    Además, los atributos fueron categorizados según el porcentaje de repetición que tienen cada uno de sus valores. Es decir, se contabilizó la cantidad de repeticiones de un valor para cada atributo y se calculó su porcentaje. Esto se hizo para ver de que manera influyen las variables que tienen un solo valor que predomina por sobre el resto al momento de ejecutar los algoritmos de agrupamiento. Las categorías según su importancia son:
+    
+    \begin{itemize}
+    \item Baja: cuando el porcentaje de aparición de un valor es mayor o igual a 95\%. 
+    \item Media: cuando el porcentaje de aparición de un valor es mayor o igual a 85\% y menor que 95\%.
+    \item Alta: cuando ninguno de los valores de una variable alcanza un porcentaje de aparición mayor o igual a 85\%.
+\end{itemize}
 
-\section{X-Means}
+Las tablas \ref{tab:atributos_establecimientos} y \ref{tab:atributos_matriculas} presentan los atributos correspondientes a los establecimientos y matrículas, respectivamente.
 
-X-Means es un algoritmo de agrupamiento, extendido de K-Means, propuesto por Pelleg y Moore \cite{Pelleg00x-means:extending} en el cual se busca dar solución a los principales problemas de K-Means. Estos son: baja escalabilidad computacional, requiere el ingreso de un número determinado de clústers y es sensible a mínimos locales.
+\begin{footnotesize}
+\begin{longtable}{|p{0.21\textwidth}|p{0.3\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|}
+\caption{Atributos que componen la base de datos de los establecimientos.}\label{tab:atributos_establecimientos}\\
+\hline
+\endfirsthead
+\caption[]{Atributos que componen la base de datos de los establecimientos. (continuación)}\\
+\hline
+\endhead
+\hline
+\multicolumn{4}{|c|}{continúa $\ldots$}\\
+\hline
+\endfoot
+\hline
+\endlastfoot
+\textbf{Atributo}  & \textbf{Descripción} & \textbf{Importancia} & \textbf{Fuente}\\ \hline
+area\_metropolitana\_rbd & Pertenencia al área metropolitana. &Media & CIAE \\ \hline
+cod\_depe & Código de dependencia del establecimiento. & Alta & CIAE \\ \hline
+gen\_rbd & Género del establecimiento. & Baja & CIAE \\ \hline
+mat\_total & Matrícula total de alumnos. & Alta & MIME \\ \hline
+prom\_alu\_cur & Promedio de alumnos por curso. & Alta & MIME \\ \hline
+pago\_mat & Nivel de pago de matrícula. & Alta & MIME \\ \hline
+pago\_men & Nivel de pago de mensualidad. & Alta & MIME \\ \hline
+becas\_disp & Becas disponibles en el establecimiento. & Alta & MIME \\ \hline
+convenio\_sep & Posee convenio de subvención escolar preferencial (SEP). & Alta & MIME \\ \hline
+deportivo & Nivel deportivo del establecimiento. & Alta & MIME \\ \hline
+req\_papeles & Requisitos de papeles para postular. & Media & MIME \\ \hline
+req\_pruebas & Requisitos de prueba para postular. & Baja & MIME \\ \hline
+req\_entrevista & Requisitos de entrevista para postular. & Alta & MIME \\ \hline
+req\_pago & Requisitos de pago para postular. & Media & MIME \\ \hline
+req\_otros & Requisitos de cualquier tipo que no clasifique en las categorías anteriores. & Baja & MIME \\ \hline
+enf\_académico & Enfoque académico. & Media & MIME \\ \hline
+enf\_valorico & Enfoque valórico. & Alto & MIME \\ \hline
+enf\_laboral & Enfoque laboral. & Baja & MIME \\ \hline
+enf\_otros & Enfoque de otro tipo que no clasifique en las categorías anteriores. & Baja & MIME \\ \hline
+apoyo\_tutorias & Ofrece ayuda a los alumnos mediante tutorías. & Media & MIME \\ \hline
+apoyo\_especialistas & Ofrece ayuda a los alumnos mediante especialistas. & Media & MIME \\ \hline
+apoyo\_otros & Ofrece ayuda a los alumnos de cualquier otra forma que no clasifique en la categorías anteriores. & Baja & MIME \\ \hline
+s\_basica & Establecimiento de enseñanza básica. & Alta & Derivados de datos CIAE. \\ \hline
+s\_media & Establecimiento de enseñanza media. & Alta & Derivados de datos CIAE. \\ \hline
+completa & Establecimiento de enseñanza completa. & Alta & Derivados de datos CIAE. \\ \hline
+\end{longtable} 
+\end{footnotesize}
 
-El principal problema que viene a solucionar este método es el de ingresar con anticipación el número deseado de clústers. A diferencia de K-Means, X-Means recibe un límite inferior y uno superior dentro de este rango el algoritmo es capaz de determinar cual es el número de centroides correcto basándose en una heurística.
+\begin{footnotesize}
+\begin{longtable}{|p{0.2\textwidth}|p{0.3\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|}
+\caption{Atributos que componen la base de datos de las matrículas.}\label{tab:atributos_matriculas}\\
+\hline
+\endfirsthead
+\caption[]{Atributos que componen la base de datos de las matrículas. (continuación)}\\
+\hline
+\endhead
+\hline
+\multicolumn{4}{|c|}{continúa $\ldots$}\\
+\hline
+\endfoot
+\hline
+\endlastfoot
+\textbf{Atributo}  & \textbf{Descripción} & \textbf{Importancia} & \textbf{Fuente} \\ \hline
+area\_metropolitana\_alu & Pertenencia al área metropolitana. & Alta & CIAE \\ \hline
+gen\_alu & Género del establecimiento. & Alta & CIAE \\ \hline
+cod\_sec & Código del sector económico. & Baja & CIAE \\ \hline
+cod\_espe & Código de especialidad. & Baja & CIAE \\ \hline
+cod\_rama & Código de rama. & Baja & CIAE \\ \hline
+grado\_sep & Corresponde a un nivel SEP. & Alta & CIAE \\ \hline
+beneficiario\_sep & Indicador del alumno beneficiario de la SEP. & Alta & CIAE \\ \hline
+criterio\_sep & Criterio por el cual se considera prioritario. & Alta & CIAE \\ \hline
+\end{longtable} 
+\end{footnotesize}
 
-\subsection{Pseudocódigo de X-Means}
+Además se añadieron variables que relacionan a ambas entidades, las variables de relación establecimiento-matrícula. En el caso de los establecimientos se agregó la sobre edad promedio, la distancia máxima a la que viven el 75\% de los alumnos de cada colegio y el índice de desarrollo de la educación (IDE) por rangos. Y por otro lado, para las matrículas se añadió la distancia a la que vive el alumno del colegio, el nivel de sobre edad\footnote{Diferencia entre la edad actual y la edad esperada para el curso en el que se encuentra.} y el nivel de copago (matrícula y mensualidad). Estos se pueden ver en las tablas \ref{tab:atributos_relacion_establecimientos} y \ref{tab:atributos_relacion_matriculas}, respectivamente.
 
-El algoritmo \ref{alg:xmeans} generado por Montresor y Guerrieri \cite{montresordecentralized} muestra el funcionamiento de X-Means, el cual está basado en un K-Means reiterativo con $K=2$. Lo que realiza este método es dividir en dos el data set inicial, para luego ir dividiendo en dos cada clúster que se va generando y detenerse cuando el número de clústers es mayor al límite superior.
+\begin{footnotesize}
+\begin{longtable}{|p{0.21\textwidth}|p{0.3\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|}
+\caption{Atributos de relación establecimiento-matrícula para la base de datos de los establecimientos.}\label{tab:atributos_relacion_establecimientos}\\
+\hline
+\endfirsthead
+\caption[]{Atributos de relación establecimiento-matrícula para la base de datos de los establecimientos. (continuación)}\\
+\hline
+\endhead
+\hline
+\multicolumn{3}{|c|}{continúa $\ldots$}\\
+\hline
+\endfoot
+\hline
+\endlastfoot
+\textbf{Atributo}  & \textbf{Descripción} & \textbf{Fuente}\\ \hline
+sobre\_edad\_prom & Sobre edad promedio de los alumnos que estudian en el establecimiento. & Calculado con datos CIAE. \\ \hline
+IDE\_rango & Índice de Desarrollo de la Educación para Todos por rango. & Calculado con datos CIAE. \\ \hline
+dist\_percentil\_75 & Distancia del percentil 75 de los alumnos que asisten al establecimiento. & Calculado con datos CIAE.\\ \hline
+\end{longtable} 
+\end{footnotesize}
 
-En palabras sencillas el algoritmo realiza las siguientes operaciones:
-\begin{enumerate}
-    \item Ejecuta K-Means ($K=2$) en el conjunto completo de datos, tomando dos centroides a partir de un vector aleatorio que pasa por el centro de masa del conjunto original y a una distancia proporcional al tamaño de la región total.
-    \item Si los clústers ''hijos'' tienen un desempeño mejor según el criterio de información bayesiano (BIC) que el clúster original, estos se conservan y lo reemplazan. 
-    \item Si no existe una mejor representación del clúster original escoge una fracción constante de los clústers y los reemplaza por sus dos ''hijos''.
-    \item El algoritmo se detiene cuando el número de clústers es mayor al límite superior entregado al algoritmo.
-\end{enumerate}
+\begin{footnotesize}
+\begin{longtable}{|p{0.2\textwidth}|p{0.3\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|}
+\caption{Atributos de relación establecimiento-matrícula para la base de datos de las matrículas.}\label{tab:atributos_relacion_matriculas}\\
+\hline
+\endfirsthead
+\caption[]{Atributos de relación establecimiento-matrícula para la base de datos de las matrículas. (continuación)}\\
+\hline
+\endhead
+\hline
+\multicolumn{3}{|c|}{continúa $\ldots$}\\
+\hline
+\endfoot
+\hline
+\endlastfoot
+\textbf{Atributo}  & \textbf{Descripción} & \textbf{Fuente} \\ \hline
+sobre\_edad & Diferencia entra la edad actual y la esperada para el nivel. & Calculado con datos CIAE.\\ \hline
+dist\_actual & Distancia del alumno a su establecimiento actual. & CIAE \\ \hline
+pago\_mat & Nivel de pago de matrícula. & MIME \\ \hline
+pago\_men & Nivel de pago de mensualidad. & MIME \\ \hline
+\end{longtable} 
+\end{footnotesize}
 
-\begin{algorithm}
-\caption{X-Means (simplificado) \cite{montresordecentralized}}\label{alg:xmeans}
-\begin{algorithmic}[1]
-\Require Set de datos S, número máximo de cluster MAX
-\Require Función 2Means(S) retorna 2 clústers
-\State Clustering $\gets$ 2Means(S)
-\State Mejor\_Puntuacion $\gets -\infty$ 
-\While{$\mid$Clustering$\mid<$ MAX}
-\State Nuevo\_Clustering $\gets$ \{\}
-\ForAll{Cl $\in$ Clustering}
-\State Cl2 $\gets$ 2Means(Cl)
-\If {Medida(Cl) $>$ Medida(Cl2)}
-\State Nuevo\_Clustering $\gets$ Nuevo\_Clustering $ \cup $ \{Cl\}
-\Else
-\State Nuevo\_Clustering $\gets$ Nuevo\_Clustering $ \cup $ Cl2
-\EndIf
-\EndFor
-\State Clustering $\gets$ Nuevo\_Clustering
-\If {Measure(Clustering) $>$ Mejor\_Puntuacion}
-\State Mejor\_Puntuacion $\gets$ Medida(Clustering)
-\State Mejor\_Clustering $\gets$ Clustering
-\EndIf
-\EndWhile\label{euclidendwhile}
-\State \textbf{return} Mejor\_Clustering %\Comment{The gcd is b}
-\end{algorithmic}
-\end{algorithm}
+Adicionalmente se imputaron los campos de datos faltantes mediante el algoritmo MICE (\textit{Multiple Imputation by Chained Equations}) para eliminar los valores nulos.
 
-Lo anteriormente descrito se puede apreciar de forma gráfica en la figura \ref{f:xmeans_steps}, donde se encuentra una representación para una iteración del algoritmo, con un conjunto inicial de 3 clústers.
+\item \textbf{Modelado:} en esta etapa se escoge el algoritmo de agrupamiento X-Means, debido a que uno de los objetivos del estudio es poder encontrar sin una idea previa la estructura que poseen los establecimientos y los alumnos, el cual es ejecutado sobre el software RapidMiner. En el programa se transforman las variables categóricas a numéricas y se realiza una normalización. Además se ajustan los diferentes parámetros del algoritmo, incluyendo el número de variables que se utiliza (según el nivel de importancia de la variable).
 
-\begin{figure}[h]
- \centering
-  \subfloat[3 clústers iniciales.]{
-   \label{f:step1}
-    \includegraphics[width=5cm]{images/xmeans1.jpg}}\vspace{1mm}
-  \subfloat[Selección punto de partida de K-Means ($k=2$).]{
-   \label{f:step2}
-    \includegraphics[width=5cm]{images/xmeans2.jpg}}\hspace{1mm}
-  \subfloat[Resultado K-Means, evaluación BIC.]{
-   \label{f:step3}
-    \includegraphics[width=5cm]{images/xmeans3.jpg}}\vspace{1mm}
-  \subfloat[Resultado iteración X-Means]{
-   \label{f:step4}
-    \includegraphics[width=5cm]{images/xmeans4.jpg}}
- \caption{Iteración X-Means.}
- \label{f:xmeans_steps}
-\end{figure}
+\item \textbf{Análisis y resultados:} se realiza un análisis de los resultados obtenidos de la fase de modelado, los cuales deben ser capaces de satisfacer los objetivos planteados para el estudio.
 
-\subsection{Ventajas}
+\item \textbf{Conclusiones:} finalmente se deben realizar las conclusiones respectivas del trabajo efectuado y validar el cumplimiento de los objetivos que fueron planteados para el trabajo. 
 
-Una de las principales ventajas que posee este algoritmo radica en que es más escalable debido a que con cada iteración se reduce más el número de datos en los cuales K-Means se debe ejecutar, lo que hace que sea más fácil utilizarlo en conjuntos de datos de mayor tamaño. Otra ventaja es que se sabe que con K-Means de pocos clústers es menos probable incurrir en mínimos locales en comparación a uno realizado con muchos clústers. Por lo tanto, el hecho de que X-Means utilice un K-Means con $K=2$ favorece a que no se atasque en mínimos locales.
-
-Además este método permite realizar una visualización del tipo árbol, la que crea una estructura jerárquica de los clústers.
+\end{itemize}

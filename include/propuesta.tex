@@ -1,3 +1,86 @@
 \chapter{Propuesta}
 
+\section{Pre-procesamiento de los datos}
 
+Antes de ejecutar el algoritmo de clusterización se realiza un proceso ETL (extract, transform and load), el cual permite limpiar y estandarizar las bases de datos.
+
+Se seleccionan atributos numéricos y categóricos para los establecimientos y se generan otros a partir de la información extraída del MIME\cite{MIME}, debido a que mucha de esta no se encuentra estandarizada. De la misma forma se seleccionan atributos numéricos y categóricos para las matrículas, y a partir de variables no seleccionadas se calculan nuevas como es el caso de la sobre edad. Además se incorpora de manera relacional con el establecimiento al que asisten su nivel de copago y la distancia a la cual viven del colegio. De igual manera, para los establecimientos se agregan atributos relacionales, como lo es la distancia a la que viven sus estudiantes en su percentil 75 y el índice de desarrollo de la educación (IDE) por rango. El detalle de los atributos seleccionados pueden ser encontrados en los anexos \ref{tab:atributos_establecimientos} y \ref{tab:atributos_matriculas} respectivamente.
+
+\begin{footnotesize}
+\begin{longtable}{|p{0.2\textwidth}|p{0.3\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|}
+\caption{Atributos seleccionados y generados para la base de datos de establecimientos.}\label{tab:atributos_establecimientos}\\
+\hline
+\endfirsthead
+\caption[]{Atributos seleccionados y generados para la base de datos de establecimientos. (continuación)}\\
+\hline
+\endhead
+\hline
+\multicolumn{4}{|c|}{continúa $\ldots$}\\
+\hline
+\endfoot
+\hline
+\endlastfoot
+\textbf{Atributo}  & \textbf{Descripción} & \textbf{Importancia} & \textbf{Fuente}\\ \hline
+area\_metropolitana\_rbd & Pertenencia al área metropolitana. &Media & CIAE \\ \hline
+cod\_depe & Código de dependencia del establecimiento. & Alta & CIAE \\ \hline
+gen\_rbd & Género del establecimiento. & Baja & CIAE \\ \hline
+mat\_total & Matrícula total de alumnos. & Alta & MIME \\ \hline
+prom\_alu\_cur & Promedio de alumnos por curso. & Alta & MIME \\ \hline
+pago\_mat & Nivel de pago de matrícula. & Alta & MIME \\ \hline
+pago\_men & Nivel de pago de mensualidad. & Alta & MIME \\ \hline
+becas\_disp & Becas disponibles en el establecimiento. & Alta & MIME \\ \hline
+convenio\_sep & Posee convenio de subvención escolar preferencial (SEP). & Alta & MIME \\ \hline
+deportivo & Nivel deportivo del establecimiento. & Alta & MIME \\ \hline
+req\_papeles & Requisitos de papeles para postular. & Media & MIME \\ \hline
+req\_pruebas & Requisitos de prueba para postular. & Baja & MIME \\ \hline
+req\_entrevista & Requisitos de entrevista para postular. & Alta & MIME \\ \hline
+req\_pago & Requisitos de pago para postular. & Media & MIME \\ \hline
+req\_otros & Requisitos de cualquier tipo que no clasifique en las categorías anteriores. & Baja & MIME \\ \hline
+enf\_académico & Enfoque académico. & Media & MIME \\ \hline
+enf\_valorico & Enfoque valórico. & Alto & MIME \\ \hline
+enf\_laboral & Enfoque laboral. & Baja & MIME \\ \hline
+enf\_otros & Enfoque de otro tipo que no clasifique en las categorías anteriores. & Baja & MIME \\ \hline
+apoyo\_tutorias & Ofrece ayuda a los alumnos mediante tutorías. & Media & MIME \\ \hline
+apoyo\_especialistas & Ofrece ayuda a los alumnos mediante especialistas. & Media & MIME \\ \hline
+apoyo\_otros & Ofrece ayuda a los alumnos de cualquier otra forma que no clasifique en la categorías anteriores. & Baja & MIME \\ \hline
+s\_basica & Establecimiento de enseñanza básica. & Alta & Derivados de datos CIAE. \\ \hline
+s\_media & Establecimiento de enseñanza media. & Alta & Derivados de datos CIAE. \\ \hline
+completa & Establecimiento de enseñanza completa. & Alta & Derivados de datos CIAE. \\ \hline
+IDE\_rango & Índice de Desarrollo de la Educación para Todos por rango. & Alta & Calculado con datos CIAE. \\ \hline
+dist\_percentil\_75 & Distancia del percentil 75 de los alumnos que asisten al establecimiento. & Alta & Calculado con datos CIAE.\\ \hline
+\end{longtable} 
+\end{footnotesize}
+
+\begin{footnotesize}
+\begin{longtable}{|p{0.2\textwidth}|p{0.3\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|}
+\caption{Atributos seleccionados y generados para la base de datos de matrículas.}\label{tab:atributos_matriculas}\\
+\hline
+\endfirsthead
+\caption[]{Atributos seleccionados y generados para la base de datos de matrículas. (continuación)}\\
+\hline
+\endhead
+\hline
+\multicolumn{4}{|c|}{continúa $\ldots$}\\
+\hline
+\endfoot
+\hline
+\endlastfoot
+\textbf{Atributo}  & \textbf{Descripción} & \textbf{Importancia} & \textbf{Fuente} \\ \hline
+area\_metropolitana\_alu & Pertenencia al área metropolitana. & Alta & CIAE \\ \hline
+gen\_alu & Género del establecimiento. & Alta & CIAE \\ \hline
+cod\_sec & Código del sector económico. & Baja & CIAE \\ \hline
+cod\_espe & Código de especialidad. & Baja & CIAE \\ \hline
+cod\_rama & Código de rama. & Baja & CIAE \\ \hline
+grado\_sep & Corresponde a un nivel SEP. & Alta & CIAE \\ \hline
+beneficiario\_sep & Indicador del alumno beneficiario de la SEP. & Alta & CIAE \\ \hline
+criterio\_sep & Criterio por el cual se considera prioritario. & Alta & CIAE \\ \hline
+sobre\_edad & Diferencia entra la edad actual y la esperada para el nivel. & Alta & Calculado con datos CIAE.\\ \hline
+dist\_actual & Distancia del alumno a su establecimiento actual. & Alta & CIAE \\ \hline
+pago\_mat & Nivel de pago de matrícula. & Alta & MIME \\ \hline
+pago\_men & Nivel de pago de mensualidad. & Alta & MIME \\ \hline
+\end{longtable} 
+\end{footnotesize}
+
+Luego de esto se transforman las variables categóricas o nominales a numéricas para poder utilizarlas en el algoritmo de clusterización junto al resto de las variables numéricas.
+
+Se imputaron los datos faltantes dentro de cada uno de los atributos previamente escogidos mediante el algoritmo MICE \textit{(Multiple imputation by chained equations}) para eliminar todos los valores nulos.
