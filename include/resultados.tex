@@ -224,6 +224,8 @@ Las siglas utilizadas para los clústers de matrículas, incluyendo los atributo
 
 \section{Análisis de los resultados}
 
+\subsection{Análisis cualitativo}
+
 En esta sección se analizan los diferentes resultados obtenidos y presentados anteriormente, comenzando con el análisis para los establecimientos y seguido por el de las matrículas.
 
 Lo primero que se aprecia en la tabla \ref{tab:cl_estab}, es que para las 3 versiones el clúster BCBM agrupa casi un 50\% del total de los colegios, en donde además en la segunda y tercera versión el resto de los clústers presentan una cardinalidad similar. Esto demuestra que en este caso incluir variables consideradas de importancia media y baja no generan un gran impacto en el resultado final.
@@ -252,6 +254,12 @@ Para el caso de las matrículas lo primero que se debe analizar es la tabla \ref
 
 Además de lo ya mencionado, es importante tener en cuenta que agregar más atributos a una base de datos de un total de 1.500.000 registros aproximadamente, provocará que el tiempo requerido para su ejecución aumenta significativamente. Por lo tanto, se analizarán más a fondo los resultados de la tercera ejecución y se utilizará para comparar con los resultados que se obtienen al agregar los atributos de relación.
 
+Lo siguiente a analizar son las diferentes características de los clústers obtenidos para las matrículas y compararlos con los que se obtienen cuando se incluyen los atributos de relación. Para facilitar la comparación entre clústers se generaron las figuras \ref{fig:chart_mat} y \ref{fig:radar_mat_rel}.
+
+En la primera instancia, se aprecian 2 atributos que generan la mayor categorización dentro de los clústers y que permiten etiquetar al grupo. Estos atributos, el género y el ser o no beneficiario SEP, son del tipo binarios y al ser combinados generan los 4 clústers obtenidos. Es decir, al grupo que pertenezca un alumno se basa principalmente en si es hombre o mujer y si tiene o no la subvención escolar preferencial.
+
+Otro aspecto importante que se aprecia en los clústers generados es que en los grupos de mujeres el nivel de sobre edad es menor a su símil masculino. Esto se puede ver con mayor precisión en la tabla \ref{tab:cl_mat_sobre_edad}, en donde los porcentajes de matrículas con sobre edad mayor o igual a un año es mayor en los clústers de hombres. Al analizar los porcentajes por años de sobre edad, estos tienen una distribución similar, aunque los porcentajes del género femenino tienden a ser mayores para 1 año y menores para 2 o más años.
+
 \begin{figure}[hc]
     \centering
     \includegraphics[width=0.66\textwidth]{images/chart_matriculas_sin.jpg}
@@ -259,11 +267,118 @@ Además de lo ya mencionado, es importante tener en cuenta que agregar más atri
     \label{fig:chart_mat}
 \end{figure}
 
-\begin{figure}[hc]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.66\textwidth]{images/radar_chart_matriculas_con.jpg}
     \caption{Promedio de atributos normalizados de matrículas con atributos relacionales (tabla \ref{tab:atributos_relacion_matriculas}) de la Región Metropolitana.}
     \label{fig:radar_mat_rel}
 \end{figure}
 
-Lo siguiente a analizar son las diferentes características de los clústers obtenidos para las matrículas y compararlos con los que se obtienen cuando se agregan los atributos de relación. Para facilitar la comparación entre clústers se generaron las figuras \ref{fig:chart_mat} y \ref{fig:radar_mat_rel}.
+Al momento de incluir los atributos de relación (nivel de copago y distancia al establecimiento), los atributos más relevantes siguen siendo el género y el ser o no beneficiario del SEP, sumándose a estos el nivel de copago. A pesar de esto se debe destacar que la importancia del género no es la misma que en la situación anterior, debido a que en este caso 2 de los 4 clústers no son excluyentes en este atributo, grupos en los que cobra mas importancia el nivel de copago.
+
+Los primeros dos grupos presentan características similares a los de la primera prueba, incorporando como atributo principal el nivel de copago, que para ambos es gratuito. Además para estos grupos se mantiene constante el hecho de que las mujeres presentan un nivel de sobre edad menor al de los varones. Como se mencionó anteriormente, el tercer y cuarto clúster son no excluyentes por género, por lo cual en estos dos pasa a ser más importante el copago. En el tercer clúster el nivel de copago es un costo bajo o medio y en el cuarto es mucho más alto. 
+
+En estos clústers la distancia no es un factor tan determinante para clasificar un alumno en uno u otro grupo, debido a que tienen valores muy similares, los cuales tienen una máxima diferencia de 1 kilómetro.
+
+Es difícil realizar una comparación entre los resultados obtenidos sin incluir los atributos de relación establecimiento-matrícula y los que se obtienen al incluirlos, pero se puede apreciar que en ambos casos el algoritmo clasificó todas las matrículas en 4 clústers. También se puede señalar que el género es importante en este estudio, independiente de que en uno de los resultados tenga menor importancia.
+
+
+\subsection{Análisis geográfico}
+
+Una vez realizado el análisis cualitativo de los clústers, y con los datos geográficos disponibles, se analiza la distribución geográfica y socioeconómica en el área metropolitana de los clústers de establecimientos, de matrículas y de las matrículas en los clústers de establecimientos.
+
+En la figura \ref{f:mapas_estab_con_gse} se muestra la distribución de los establecimientos de cada clústers en la Región Metropolitana, incluyendo los grupos socioeconómicos. En el mapa de la figura \ref{f:mapa_estab_con_0} se aprecia que los establecimientos del clúster BCBMPD se encuentran distribuidos de manera uniforme sobre gran parte del área metropolitana, exceptuando la zona oriente. Estos se concentran principalmente en las zonas de color naranjo, las cuales corresponden a los GSE de los deciles 3 al 7. Los establecimientos del clúster BCAMMD (figura \ref{f:mapa_estab_con_1}) se distribuyen de la misma forma descrita anteriormente, con la diferencia de que su cardinalidad es menor, por lo cual los colegios se encuentran a una mayor distancia entre ellos.
+
+\begin{figure}[H]
+ \centering
+  \subfloat[Establecimientos clúster BCBMPD.]{
+   \label{f:mapa_estab_con_0}
+    \includegraphics[width=7.5cm]{images/establecimientos/E_TODOS_CON_0.jpg}}
+  \subfloat[Establecimientos clúster BCAMMD.]{
+   \label{f:mapa_estab_con_1}
+    \includegraphics[width=7.5cm]{images/establecimientos/E_TODOS_CON_1.jpg}}\hspace{1mm}
+  \subfloat[Establecimientos clúster MCAMMD.]{
+   \label{f:mapa_estab_con_2}
+    \includegraphics[width=7.5cm]{images/establecimientos/E_TODOS_CON_2.jpg}}
+  \subfloat[Establecimientos clúster ACMMLD.]{
+   \label{f:mapa_estab_con_3}
+    \includegraphics[width=7.5cm]{images/establecimientos/E_TODOS_CON_3.jpg}}
+ \caption{Mapas de clústers de establecimientos (con atributos relacionales) sobre mapa GSE de la Región Metropolitana.}
+ \label{f:mapas_estab_con_gse}
+\end{figure}
+
+\newpage
+En la figura \ref{f:mapa_estab_con_2} los colegios del grupo MCAMMD se encuentran ubicados en las zonas anaranjadas, pertenecientes a los deciles 4 al 7. Pero a diferencia de los anteriores, estos se encuentran distribuidos en grupos y no se extienden de manera uniforma por la capital. Por último, el clúster ACMMLD (figura \ref{f:mapa_estab_con_3}) se ubica en la zona oriente de la Región Metropolitana, en donde se encuentran los GSE de mayor ingreso per cápita (deciles del 8 al 10). Esto concuerda con que los establecimientos de este clúster son los que tienen las matrículas y mensualidades más elevadas de la capital.
+
+De manera general se puede apreciar que los establecimientos se encuentran principalmente en el área metropolitana de la capital (zonas coloreadas según su GSE). Además, estos se ubican principalmente en las zonas de colores naranjos y azules, correspondientes a los deciles 3 al 10, dejando a los sectores más pobres (deciles 1 y 2) con una presencia casi nula. Esto, de una u otra manera, refleja la importancia que tiene el grupo socioeconómico sobre la ubicación de un establecimiento y los niveles de costo que tienen.
+
+En los mapas de la figura \ref{f:mapas_mat_en_estab_con_gse}, y utilizando la geolocalización de las matrículas, se muestra la distribución de los alumnos que asisten a los establecimientos de los diferentes clústers. Es decir, en cada mapa se muestran los alumnos pertenecientes a los colegios que conforman los clústers BCBMPD, BCAMMD, MCAMMD y ACMMLD. En el mapa \ref{f:mapa_mat_en_estab_con_0_gse} los alumnos se distribuyen por casi toda el área metropolitana, exceptuando el sector oriente y concentrándose en sectores de la zona sur y poniente. Los estudiantes del clúster BCAMMD (figura \ref{f:mapa_mat_en_estab_con_1_gse} se encuentran en toda el área metropolitana, con menor proporción y densidad en el sector oriente y presentando una mayor densidad en el sur de la capital.
+
+En \ref{f:mapa_mat_en_estab_con_2_gse} el alumnado se encuentra por toda la capital, concentrándose de manera más densa en la periferia del sector poniente y seguida por dos sectores del sur de la capital. Por último, en el cuarto clúster (figura \ref{f:mapa_mat_en_estab_con_3_gse}) todos sus estudiantes se sitúan en el sector oriente, concentrándose en el sector nororiente.
+
+A partir de los mapas de la figura \ref{f:mapas_mat_en_estab_con_gse} y lo anteriormente descrito, se puede apreciar que en el caso de los primeros tres clústers de establecimientos, sus alumnos predominantemente viven en zonas pertenecientes a los deciles del 4 al 7, a diferencia de lo que ocurre con los del último clúster. Los alumnos de colegios pertenecientes al clúster ACMMLD residen casi en su totalidad en sectores de los deciles 8 al 10, es decir, en los sectores donde viven las familias con mayor ingreso per cápita.
+
+\begin{figure}[H]
+ \centering
+  \subfloat[Matrículas en colegios de BCBMPD.]{
+   \label{f:mapa_mat_en_estab_con_0_gse}
+    \includegraphics[width=7.5cm]{images/matriculas/E_CON_0_final.jpg}}
+  \subfloat[Matrículas en colegios de BCAMMD.]{
+   \label{f:mapa_mat_en_estab_con_1_gse}
+    \includegraphics[width=7.5cm]{images/matriculas/E_CON_1_final.jpg}}\hspace{1mm}
+  \subfloat[Matrículas en colegios de MCAMMD.]{
+   \label{f:mapa_mat_en_estab_con_2_gse}
+    \includegraphics[width=7.5cm]{images/matriculas/E_CON_2_final.jpg}}
+  \subfloat[Matrículas en colegios de ACMMLD.]{
+   \label{f:mapa_mat_en_estab_con_3_gse}
+    \includegraphics[width=7.5cm]{images/matriculas/E_CON_3_final.jpg}}
+ \caption{Mapas de calor de matrículas (con atributos relacionales) en clústers de establecimientos sobre mapa GSE de la Región Metropolitana.}
+ \label{f:mapas_mat_en_estab_con_gse}
+\end{figure}
+
+Al momento de analizar la distribución de los clúster de matrículas sin considerar los atributos de relación, podemos ver en la figura \ref{f:mapas_mat_sin_gse} que los clúster MCB y HCB se distribuyen de manera similar. Los estudiantes de dichos clústers están dispersos por casi toda el área metropolitana, disminuyendo su cantidad en el sector oriente y concentrándose en el sector sur y poniente. Por otro lado los clústers MSB y HSB se distribuyen de igual manera, ocupando toda el área metropolitana. Estos presentan varias zonas de alta densidad de alumnos, destacando entre ellas la zona norte del sector oriente de la capital.
+
+Además, en las imágenes \ref{f:mapas_mat_sin_gse} se aprecian los grupos socioeconómicos en los cuales los clústers se encuentran, los primeros dos están presentes en los deciles del 4 al 7 principalmente y los otros dos en los deciles del 4 al 10, donde su \textit{peak} está en los deciles del 8 al 10.
+
+
+\begin{figure}[H]
+ \centering
+  \subfloat[Matrículas clúster MCB.]{
+   \label{f:mapa_mat_sin_0_gse}
+    \includegraphics[width=7.5cm]{images/matriculas/M_SIN_0_final.jpg}}
+  \subfloat[Matrículas clúster HCB.]{
+   \label{f:mapa_mat_sin_1_gse}
+    \includegraphics[width=7.5cm]{images/matriculas/M_SIN_1_final.jpg}}\hspace{1mm}
+  \subfloat[Matrículas clúster MSB.]{
+   \label{f:mapa_mat_sin_2_gse}
+    \includegraphics[width=7.5cm]{images/matriculas/M_SIN_2_final.jpg}}
+  \subfloat[Matrículas clúster HSB.]{
+   \label{f:mapa_mat_sin_3_gse}
+    \includegraphics[width=7.5cm]{images/matriculas/M_SIN_3_final.jpg}}
+ \caption{Mapas de calor de clústers de matrículas sobre mapa GSE de la Región Metropolitana.}
+ \label{f:mapas_mat_sin_gse}
+\end{figure}
+
+Al analizar las imágenes \ref{f:mapa_mat_con_0_gse} y \ref{f:mapa_mat_con_1_gse} podemos observar una gran similitud, en donde los alumnos se distribuyen por casi toda el área metropolitana, pero disminuye notoriamente en el sector oriente. En la figura \ref{f:mapa_mat_con_2_gse} encontramos alumnos en casi toda la capital, pero se concentran en 3 sectores,  2 en la zona sur y 1 en la zona poniente. Por último, en \ref{f:mapa_mat_con_3_gse}, casi todos los alumnos residen en el sector oriente de la capital, siendo la periferia de este donde existe una mayor concentración.
+
+A diferencia del análisis sin variables de relación, las primeras 3 figuras muestran que los alumnos viven en sectores socioeconómicos que van del decil 2 al decil 8, es decir, comprenden grupos muy variados. Caso aparte es la última imagen, donde los estudiantes residen en sectores pertenecientes a los deciles del 8 al 10.
+
+Un punto importante a destacar en ambos análisis de clústers de matrículas es que en general los alumnos no residen en sectores pertenecientes a lo deciles 1 y 2, es decir, a los sectores de menor ingreso.
+
+\begin{figure}[H]
+ \centering
+  \subfloat[Matrículas clúster MCBBC.]{
+   \label{f:mapa_mat_con_0_gse}
+    \includegraphics[width=7.5cm]{images/matriculas/M_CON_1_final.jpg}}
+  \subfloat[Matrículas clúster HCBBC.]{
+   \label{f:mapa_mat_con_1_gse}
+    \includegraphics[width=7.5cm]{images/matriculas/M_CON_0_final.jpg}}\hspace{1mm}
+  \subfloat[Matrículas clúster MiSBMC.]{
+   \label{f:mapa_mat_con_2_gse}
+    \includegraphics[width=7.5cm]{images/matriculas/M_CON_2_final.jpg}}
+  \subfloat[Matrículas clúster MiSBAC.]{
+   \label{f:mapa_mat_con_3_gse}
+    \includegraphics[width=7.5cm]{images/matriculas/M_CON_3_final.jpg}}
+ \caption{Mapas de calor de clústers de matrículas (con atributos relacionales) sobre mapa GSE de la Región Metropolitana.}
+ \label{f:mapas_mat_con_gse}
+\end{figure}
