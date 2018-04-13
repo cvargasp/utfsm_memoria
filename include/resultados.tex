@@ -1,6 +1,6 @@
 \chapter{Resultados y Análisis}
 
-Una vez realizados los experimentos con el algoritmo de agrupamiento X-Means, se presentan los resultados en diferentes figuras y tablas. Primero se encuentran los resultados conseguidos al ejecutar el algoritmo con los atributos de las tablas \ref{tab:atributos_establecimientos} y \ref{tab:atributos_matriculas}, para ver cuales atributos son los mas importantes. Luego se presentan los resultados al comparar el mejor resultado de la etapa anterior con el resultado que se obtiene al agregarle las variables de relación establecimiento-matrícula.
+Una vez realizados los experimentos con el algoritmo de agrupamiento X-Means, se presentan los resultados en diferentes figuras y tablas. Primero se encuentran los resultados conseguidos al ejecutar el algoritmo con los atributos de las tablas \ref{tab:atributos_establecimientos} y \ref{tab:atributos_matriculas}. Luego se presentan los resultados al comparar el mejor resultado de la etapa anterior con el resultado que se obtiene al agregarle las variables de relación establecimiento-matrícula.
 
 \section{Resultados obtenidos}
 
@@ -252,7 +252,7 @@ Los primeros dos clústers son colegios gratuitos o baratos con un IDE bajo que 
 
 Para el caso de las matrículas lo primero que se debe analizar es la tabla \ref{tab:cl_mat}, en donde se aprecian los resultados de las 3 ejecuciones con los diferentes atributos, agrupados por su nivel de importancia. Se puede ver que las primeras dos ejecuciones generan clústers de cardinalidad muy similares, diferenciándose claramente con el tercer resultado, el cual presenta clústers de tamaños similares. La diferencia se en que los clústers de la última ejecución poseen atributos que describen de mejor manera los grupos, los cuales se van perdiendo al ir añadiendo atributos adicionales. 
 
-Además de lo ya mencionado, es importante tener en cuenta que agregar más atributos a una base de datos de un total de 1.500.000 registros aproximadamente, provocará que el tiempo requerido para su ejecución aumenta significativamente. Por lo tanto, se analizarán más a fondo los resultados de la tercera ejecución y se utilizará para comparar con los resultados que se obtienen al agregar los atributos de relación.
+Además de lo ya mencionado, es importante tener en cuenta que agregar más atributos a una base de datos de más de 1.000.000 de registros, provocará que el tiempo requerido para su ejecución aumente significativamente. Por lo tanto, se analizarán más a fondo los resultados de la tercera ejecución y se utilizará para comparar con los resultados que se obtienen al agregar los atributos de relación.
 
 Lo siguiente a analizar son las diferentes características de los clústers obtenidos para las matrículas y compararlos con los que se obtienen cuando se incluyen los atributos de relación. Para facilitar la comparación entre clústers se generaron las figuras \ref{fig:chart_mat} y \ref{fig:radar_mat_rel}.
 
@@ -282,6 +282,27 @@ En estos clústers la distancia no es un factor tan determinante para clasificar
 
 Es difícil realizar una comparación entre los resultados obtenidos sin incluir los atributos de relación establecimiento-matrícula y los que se obtienen al incluirlos, pero se puede apreciar que en ambos casos el algoritmo clasificó todas las matrículas en 4 clústers. También se puede señalar que el género es importante en este estudio, independiente de que en uno de los resultados tenga menor importancia.
 
+Además del análisis individual de los clústers de establecimientos y matrículas, se estudia la relación que tienen entre ellos. En las figuras \ref{fig:mat_sin_estab} y \ref{fig:mat_con_estab} se aprecia como están compuestos los clústers de colegios según los perfiles de sus alumnos, tanto en el caso de los clústers obtenidos sin los atributos de relación y con los atributos.
+
+En la figura \ref{fig:mat_sin_estab} se muestra como están compuestos los clústers de establecimientos, según los clústers de matrículas sin considerar los atributos de relación. En este se puede apreciar que los clústers se encuentran balanceados en género, es decir, no predomina un género en un tipo de colegio. Por otro lado, en los clústers BCBMCD y BCAMMD predominan los estudiantes que son beneficiarios por sobre los que no lo son, lo que es totalmente opuesto en los grupos MCAMMD y ACMMLD, donde predominan los alumnos sin beneficio. Según las características de los colegios y de los alumnos, se observa que al aumentar el nivel de copago disminuye la cantidad de alumnos con beneficios y aumenta la cantidad de los que no tienen.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/matriculas/Mat_sin_estab.jpg}
+    \caption{Composición de los clústers de establecimientos según los clústers de matrículas (sin variables de relación).}
+    \label{fig:mat_sin_estab}
+\end{figure}
+
+Al momento de incluir los atributos de relación para las matrículas, los grupos que se forman varían, lo que también hace variar la composición de los clústers de colegios. Los primeros dos clústers de establecimientos están formados principalmente por los grupos de alumnos MCBBC y HCBBC, es decir, por alumnos que pagan poco y tienen beneficios. El tercer clúster está compuesto principalmente por el grupo MiSBMC, que son alumnos (hombres y mujeres) que tienen un nivel de copago medio y no poseen beneficio. Por último, el clúster ACMMLD está formado en su mayoría por casi todo el clúster MiSBAC, el cual tiene alumnos de ambos géneros con un nivel de copago elevado. Lo anteriormente descrito se puede apreciar en la figura \ref{fig:mat_con_estab}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/matriculas/Mat_con_estab.jpg}
+    \caption{Composición de los clústers de establecimientos según los clústers de matrículas (con variables de relación).}
+    \label{fig:mat_con_estab}
+\end{figure}
+
+Si se comparan ambas figuras podemos notar a simple vista que la composición de los clústers de establecimientos varían al incorporar variables de relación en las matrículas, esto debido a que los grupos en esta segunda clusterización están fuertemente influenciados por el nivel del copago que tienen los alumnos.
 
 \subsection{Análisis geográfico}
 
